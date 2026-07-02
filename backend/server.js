@@ -3,6 +3,9 @@ const cors = require("cors");
 const morgan = require("morgan");
 require("dotenv").config();
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./config/swagger");
+
 const connectDB = require("./config/db");
 
 const patientRoutes = require("./routes/patientRoutes");
@@ -23,18 +26,31 @@ connectDB();
 
 app.use(cors());
 
-// HTTP Request Logger
 app.use(morgan("dev"));
 
 app.use(express.json());
 
 // ======================================
-// Routes
+// Home Route
 // ======================================
 
 app.get("/", (req, res) => {
     res.send("CLINIANI AI Backend Running...");
 });
+
+// ======================================
+// Swagger Documentation
+// ======================================
+
+app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerSpec)
+);
+
+// ======================================
+// API Routes
+// ======================================
 
 app.use("/api/patients", patientRoutes);
 

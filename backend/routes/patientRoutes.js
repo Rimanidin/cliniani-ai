@@ -12,29 +12,89 @@ const {
   deletePatient,
 } = require("../controllers/patientController");
 
-// =============================
-// CREATE PATIENT
-// =============================
-router.post("/", validatePatient, createPatient);
+/**
+ * @swagger
+ * tags:
+ *   name: Patients
+ *   description: Patient Management APIs
+ */
 
-// =============================
-// GET ALL PATIENTS
-// =============================
+/**
+ * @swagger
+ * /api/patients:
+ *   get:
+ *     summary: Get all patients
+ *     tags: [Patients]
+ *     responses:
+ *       200:
+ *         description: List of patients
+ */
 router.get("/", getPatients);
 
-// =============================
-// GET PATIENT BY ID
-// =============================
+/**
+ * @swagger
+ * /api/patients:
+ *   post:
+ *     summary: Create a patient
+ *     tags: [Patients]
+ *     responses:
+ *       201:
+ *         description: Patient created successfully
+ */
+router.post("/", validatePatient, createPatient);
+
+/**
+ * @swagger
+ * /api/patients/{id}:
+ *   get:
+ *     summary: Get patient by ID
+ *     tags: [Patients]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Patient found
+ */
 router.get("/:id", getPatientById);
 
-// =============================
-// UPDATE PATIENT
-// =============================
+/**
+ * @swagger
+ * /api/patients/{id}:
+ *   put:
+ *     summary: Update patient
+ *     tags: [Patients]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Patient updated successfully
+ */
 router.put("/:id", validatePatient, updatePatient);
 
-// =============================
-// DELETE PATIENT
-// =============================
+/**
+ * @swagger
+ * /api/patients/{id}:
+ *   delete:
+ *     summary: Delete patient
+ *     tags: [Patients]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Patient deleted successfully
+ */
 router.delete("/:id", deletePatient);
 
 module.exports = router;
