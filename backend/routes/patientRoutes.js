@@ -1,8 +1,10 @@
+const authMiddleware = require("../middleware/authMiddleware");
 const express = require("express");
 
 const router = express.Router();
 
 const validatePatient = require("../middleware/validatePatient");
+const roleMiddleware = require("../middleware/roleMiddleware");
 
 const {
   createPatient,
@@ -29,7 +31,13 @@ const {
  *       200:
  *         description: List of patients
  */
-router.get("/", getPatients);
+
+router.get(
+    "/",
+    authMiddleware,
+    roleMiddleware("Admin", "Doctor", "Receptionist"),
+    getPatients
+);
 
 /**
  * @swagger
@@ -41,7 +49,14 @@ router.get("/", getPatients);
  *       201:
  *         description: Patient created successfully
  */
-router.post("/", validatePatient, createPatient);
+
+router.post(
+    "/",
+    authMiddleware,
+    roleMiddleware("Admin", "Doctor", "Receptionist"),
+    validatePatient,
+    createPatient
+);
 
 /**
  * @swagger
@@ -59,7 +74,12 @@ router.post("/", validatePatient, createPatient);
  *       200:
  *         description: Patient found
  */
-router.get("/:id", getPatientById);
+router.get(
+    "/:id",
+    authMiddleware,
+    roleMiddleware("Admin", "Doctor", "Receptionist"),
+    getPatientById
+);
 
 /**
  * @swagger
@@ -77,7 +97,13 @@ router.get("/:id", getPatientById);
  *       200:
  *         description: Patient updated successfully
  */
-router.put("/:id", validatePatient, updatePatient);
+router.put(
+    "/:id",
+    authMiddleware,
+    roleMiddleware("Admin", "Doctor"),
+    validatePatient,
+    updatePatient
+);
 
 /**
  * @swagger
@@ -95,6 +121,11 @@ router.put("/:id", validatePatient, updatePatient);
  *       200:
  *         description: Patient deleted successfully
  */
-router.delete("/:id", deletePatient);
+router.delete(
+    "/:id",
+    authMiddleware,
+    roleMiddleware("Admin"),
+    deletePatient
+);
 
 module.exports = router;

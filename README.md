@@ -1,120 +1,42 @@
 # CLINIANI AI
 
-## Enterprise AI-Powered Neurology EMR
+A modern Neurology EMR built using Node.js, Express, MongoDB and OpenAPI.
 
-CLINIANI AI is an enterprise healthcare platform being built from the ground up using modern software engineering practices.
+## Features
 
-The long-term vision is to build an AI-first Electronic Medical Record (EMR) platform supporting:
-
-- Patient Registration
-- Authentication & Role-Based Access
-- Patient Vitals
-- Neurology Clinical Documentation
-- FHIR R4 APIs
-- AI Clinical Copilot
-- MCP-based Healthcare Agents
-- Docker Deployment
-- CI/CD Pipeline
-- Cloud Deployment
-
----
+- Patient Management
+- JWT Authentication
+- Refresh Tokens
+- Role Based Access Control
+- Swagger Documentation
+- MongoDB
+- REST APIs
 
 ## Technology Stack
-
-### Backend
 
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
-
-### Frontend
-
-- React
-- Material UI (planned)
-
-### API Documentation
-
-- Swagger / OpenAPI
-
-### API Testing
-
+- JWT
+- bcrypt
+- Swagger
 - Postman
 
-### Version Control
+## Completed Modules
 
-- Git
-- GitHub
-
-### Containerization
-
-- Docker
-
----
-
-## Current Project Status
-
-### Phase 0
-
-- Development Environment
-- Git
-- Docker
-- MongoDB
-- Postman
-
-✅ Completed
-
----
-
-### Phase 1
-
-- Backend Foundation
-- Database Connection
-- Express Server
-
-✅ Completed
-
----
-
-### Phase 2
-
-Patient Module
-
-Completed:
-
+- Authentication
+- Authorization
 - Patient CRUD
-- Validation Middleware
-- Global Error Handler
-- Morgan Request Logging
-- Swagger Documentation
-- Postman Workspace
 
----
+## Roadmap
 
-## Running the Backend
+- Encounter Module
+- Vitals Module
+- Neurology EMR
+- FHIR APIs
+- AI Clinical Assistant
 
-```bash
-cd backend
-npm install
-npm run dev
-```
+Version
 
----
-
-## API Documentation
-
-```
-http://localhost:5001/api-docs
-```
-
----
-
-## Database
-
-MongoDB running in Docker.
-
----
-
-## Author
-
-CLINIANI AI
+v0.2.0

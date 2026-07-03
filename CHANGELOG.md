@@ -1,96 +1,33 @@
-# CHANGELOG
+# Changelog
 
-All notable changes to CLINIANI AI will be documented in this file.
+## v0.2.0 - Authentication & Security Release
 
----
+Release Date: July 2026
 
-# Version 0.1.0 (In Progress)
+### Added
 
-## Added
+- User Registration
+- User Login
+- JWT Authentication
+- Refresh Token Authentication
+- Logout
+- Role Based Access Control
+- Authentication Middleware
+- Authorization Middleware
+- Swagger Authentication APIs
+- Postman Authentication Collection
 
-### Backend Foundation
+### Improved
 
-- Express Server
-- MongoDB Connection
-- Environment Variables
-- Project Structure
+- Protected Patient APIs
+- Password Hashing using bcrypt
+- JWT Automation in Postman
 
-### Patient Module
+### Security
 
-- Patient Model
-- Create Patient API
-- Get All Patients API
-- Get Patient By ID API
-- Update Patient API
-- Delete Patient API
-
-### Middleware
-
-- Patient Validation
-- Global Error Handler
-- Morgan Request Logging
-
-### API Documentation
-
-- Swagger UI
-- OpenAPI Configuration
-
-### API Testing
-
-- Postman Workspace
-- Patient Collection
-- Environment Variables
-- Automated Tests
-
-### DevOps
-
-- Git Repository
-- GitHub
-- Docker MongoDB
-- MongoDB Compass
-
----
-
-## Planned
-
-### Version 0.2.0
-
-- User Module
-- Authentication
-- JWT
+- JWT Access Tokens
 - Refresh Tokens
-- Role-Based Access Control
+- Password Encryption
+- Role Based Authorization
 
-### Version 0.3.0
-
-- Patient Vitals
-- Vital History
-- Dashboard
-
-### Version 0.4.0
-
-- React Frontend
-- Login Screen
-- Patient Registration UI
-
-### Version 0.5.0
-
-- Neurology EMR
-- Clinical Notes
-- SOAP Notes
-
-### Version 0.6.0
-
-- FHIR Resources
-- FHIR APIs
-- SMART on FHIR
-
-### Version 0.7.0
-
-- AI Clinical Copilot
-- Healthcare MCP Server
-- AI Agents
-
-### Version 1.0.0
-
-Enterprise Demo Release
+---

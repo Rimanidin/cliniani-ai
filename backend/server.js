@@ -9,6 +9,7 @@ const swaggerSpec = require("./config/swagger");
 const connectDB = require("./config/db");
 
 const patientRoutes = require("./routes/patientRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 const errorHandler = require("./middleware/errorHandler");
 
@@ -53,6 +54,7 @@ app.use(
 // ======================================
 
 app.use("/api/patients", patientRoutes);
+app.use("/api/auth", authRoutes);
 
 // ======================================
 // Global Error Handler
