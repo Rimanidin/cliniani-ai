@@ -1,3 +1,11 @@
+/**
+ * --------------------------------------------------------
+ * File Name : server.js
+ * Project   : CLINIANI AI
+ * Purpose   : Express Server Entry Point
+ * --------------------------------------------------------
+ */
+
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
@@ -22,10 +30,32 @@ const app = express();
 connectDB();
 
 // ======================================
-// Middleware
+// CORS Configuration
 // ======================================
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5174",
+  "http://127.0.0.1:5174",
+];
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Allow requests with no origin (Postman, server-to-server)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
+// ======================================
+// Middleware
+// ======================================
 
 app.use(morgan("dev"));
 
@@ -40,7 +70,7 @@ app.get("/", (req, res) => {
 });
 
 // ======================================
-// Swagger Documentation
+// Swagger
 // ======================================
 
 app.use(
@@ -53,11 +83,11 @@ app.use(
 // API Routes
 // ======================================
 
-app.use("/api/patients", patientRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/patients", patientRoutes);
 
 // ======================================
-// Global Error Handler
+// Error Handler
 // ======================================
 
 app.use(errorHandler);
@@ -69,5 +99,5 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`🚀 CLINIANI AI Backend running on port ${PORT}`);
 });
