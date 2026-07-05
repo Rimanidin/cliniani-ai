@@ -8,6 +8,7 @@
  */
 
 import { createContext, useContext, useEffect, useState } from "react";
+import React from "react";
 
 const AuthContext = createContext();
 

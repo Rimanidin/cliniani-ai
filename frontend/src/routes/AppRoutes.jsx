@@ -4,6 +4,7 @@ import Login from "../pages/Login/Login";
 import Dashboard from "../pages/Dashboard/Dashboard";
 
 import ProtectedRoute from "../components/common/ProtectedRoute";
+import React from "react";
 
 function AppRoutes() {
   return (

@@ -10,6 +10,7 @@ import authService from "../../services/authService";
 import { Button, Container, Paper, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import React from "react";
 
 function Dashboard() {
   const navigate = useNavigate();
